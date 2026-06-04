@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import "./reset.css";
 import RootProvider from "./RootProvider";
 
 const roboto = localFont({
@@ -20,9 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${roboto.className} h-full antialiased`}>
-      <RootProvider>
-        <body className="min-h-full flex flex-col">{children}</body>
-      </RootProvider>
+      <body>
+        <RootProvider>{children}</RootProvider>
+      </body>
     </html>
   );
 }
