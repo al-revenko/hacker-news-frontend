@@ -1,10 +1,11 @@
 "use client";
-// import { useLoadingState } from '@shared/hooks';
 import { LinearProgress } from "@mui/material";
 
-const LoadBar = () => {
-  const isLoading = false;
+export interface LoadBarProps {
+  isLoading: boolean;
+}
 
+const LoadBar = ({ isLoading }: LoadBarProps) => {
   return (
     <div className="absolute bottom-0 left-0 right-0">
       {isLoading && (

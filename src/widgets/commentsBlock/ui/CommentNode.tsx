@@ -2,7 +2,7 @@
 import { ComponentType, useState } from "react";
 import DOMPurify from "isomorphic-dompurify";
 import { CircularProgress } from "@mui/material";
-import { timestampFormat } from "@shared/utils";
+import { timestampFormat } from "@/shared/lib";
 import ArithmeticButton from "@shared/ui/ArithmeticButton";
 import { CommentItem } from "@entities/commentItem";
 import { useComments } from "@/entities/commentItem";

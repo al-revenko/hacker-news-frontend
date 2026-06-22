@@ -1,6 +1,6 @@
 import { StoryItem } from "@entities/storyItem";
 import { Heading } from "@shared/ui";
-import { timestampFormat } from "@shared/utils";
+import { timestampFormat } from "@/shared/lib";
 
 type Props = { item: StoryItem };
 

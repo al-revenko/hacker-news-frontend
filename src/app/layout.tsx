@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import RootProvider from "./RootProvider";
+import Header from "@widgets/header/Header";
 
 const roboto = localFont({
   src: "../../public/fonts/roboto.ttf",
@@ -19,8 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${roboto.className} h-full antialiased`}>
-      <body>
-        <RootProvider>{children}</RootProvider>
+      <body className="bg-secondary grid min-h-dvh w-full grid-rows-[auto_1fr_auto]">
+        <RootProvider>
+          <Header />
+          <main>{children}</main>
+          <footer></footer>
+        </RootProvider>
       </body>
     </html>
   );

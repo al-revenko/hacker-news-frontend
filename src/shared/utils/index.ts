@@ -1,1 +1,0 @@
-export { timestampFormat } from "./timestampFormat";
