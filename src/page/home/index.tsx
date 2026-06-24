@@ -8,6 +8,7 @@ import { useEffect } from "react";
 const STORY_ITEMS_PER_PAGE: number = 20;
 const CACHE_STALE_TIME_MS: number = 30 * 1000;
 const STORY_CATEGORY: HN_STORY_CATEGORIES = HN_STORY_CATEGORIES.best;
+const PREFETCH_ITEMS: boolean = false;
 
 const HomePage = () => {
   useEffect(() => {
@@ -20,6 +21,7 @@ const HomePage = () => {
         category={STORY_CATEGORY}
         itemsPerPage={STORY_ITEMS_PER_PAGE}
         cacheStaleTimeMs={CACHE_STALE_TIME_MS}
+        prefetchItems={PREFETCH_ITEMS}
         className="mb-5"
       />
     </ContentLayout>

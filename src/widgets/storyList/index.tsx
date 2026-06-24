@@ -10,6 +10,7 @@ export interface StoryListProps {
   category: HN_STORY_CATEGORIES;
   itemsPerPage?: number;
   cacheStaleTimeMs?: number;
+  prefetchItems?: boolean;
 }
 
 function renderSkeletons(
@@ -47,10 +48,15 @@ function renderListItems(
   skeletonsCount: number,
   hasNextPage: boolean,
   sentinelRef: (element: Element | null | undefined) => void,
+  prefetchItems?: boolean | undefined,
 ) {
   const storyCards = items.map((item, index) => (
     <li key={item.id}>
-      <StoryCard item={item} positionNumber={index + 1} />
+      <StoryCard
+        item={item}
+        positionNumber={index + 1}
+        prefetch={prefetchItems}
+      />
     </li>
   ));
 
@@ -68,6 +74,7 @@ const StoryList = ({
   itemsPerPage = 20,
   cacheStaleTimeMs = 0,
   className,
+  prefetchItems,
 }: StoryListProps) => {
   const {
     data = [],
@@ -86,7 +93,7 @@ const StoryList = ({
       <ul className="h-full flex flex-col gap-2">
         {isLoading
           ? renderSkeletons(itemsPerPage)
-          : renderListItems(data, 5, hasNextPage, inViewRef)}
+          : renderListItems(data, 5, hasNextPage, inViewRef, prefetchItems)}
       </ul>
     </div>
   );

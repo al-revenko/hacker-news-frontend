@@ -8,6 +8,7 @@ import { StoryItem } from "@entities/storyItem";
 interface StoryCardProps {
   item: StoryItem;
   positionNumber: number;
+  prefetch?: boolean;
 }
 
 const StoryCardInfo = ({
@@ -25,14 +26,14 @@ const StoryCardInfo = ({
   );
 };
 
-const StoryCard = ({ positionNumber, item }: StoryCardProps) => {
+const StoryCard = ({ positionNumber, item, prefetch }: StoryCardProps) => {
   const { id, title, user, score, time, commentsCount } = item ?? {};
 
   const timestamp = timestampFormat(time ?? 0, "DD.MM.YYYY");
   const dateString = `${timestamp.date}`;
 
   return (
-    <Link href={`/story/${id}`}>
+    <Link href={`/story/${id}`} prefetch={prefetch}>
       <div className="text-font group grid h-25 grid-cols-[50px_max-content_1fr] md:h-14.75">
         <span className="text-primary flex items-center justify-center text-xl font-bold">
           {score ?? 0}
