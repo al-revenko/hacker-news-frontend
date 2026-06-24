@@ -1,7 +1,6 @@
-import { HN_API_URL } from "@shared/hn/const";
+import { HN_API_URL, HN_STORY_CATEGORIES } from "@shared/hn";
 import { StoryItem } from "../model/types";
 import { isStoryItem } from "../guard/isStoryItem";
-import { HN_STORY_CATEGORIES } from "@shared/hn/const";
 
 export async function fetchStoryItem(
   id: string | number,

@@ -1,4 +1,4 @@
-import { HN_ITEM_TYPES } from "@shared/hn/const";
+import { HN_ITEM_TYPES } from "@shared/hn";
 
 export interface CommentItem {
   id: number;

@@ -1,6 +1,6 @@
 import { AppBar } from "@mui/material";
 import LoadBar from "./ui/LoadBar";
-import ContentLayout from "@/shared/ui/ContentLayout";
+import ContentLayout from "@shared/ui/ContentLayout";
 import Image from "next/image";
 import NavigationBlock from "./ui/NavigationBlock";
 

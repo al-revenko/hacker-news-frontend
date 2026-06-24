@@ -19,7 +19,6 @@
       },
     ],
     "paths": {
-      "@/*": ["./src/*"],
       "@page/*": ["./src/page/*"],
       "@widgets/*": ["./src/widgets/*"],
       "@features/*": ["./src/features/*"],

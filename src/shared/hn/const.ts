@@ -1,4 +1,7 @@
-export const HN_API_URL = "http://localhost:4000/hn/";
+export const HN_API_URL = process.env.NEXT_PUBLIC_HN_API_URL ?? "";
+if (!HN_API_URL) {
+  throw new Error("env NEXT_PUBLIC_HN_API_URL is not set");
+}
 
 export enum HN_STORY_CATEGORIES {
   new = "new",

@@ -1,7 +1,7 @@
 "use client";
 
-import { HN_STORY_CATEGORIES } from "@shared/hn/const";
-import { ContentLayout } from "@/shared/ui";
+import { HN_STORY_CATEGORIES } from "@shared/hn";
+import { ContentLayout } from "@shared/ui";
 import StoryList from "@widgets/storyList";
 import { useEffect } from "react";
 

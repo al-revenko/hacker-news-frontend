@@ -7,7 +7,7 @@ interface Props {
   data: StoryItem;
 }
 
-const StoryPage = async ({ data }: Props) => {
+const StoryPage = ({ data }: Props) => {
   return (
     <ContentLayout>
       <div className="pt-2">

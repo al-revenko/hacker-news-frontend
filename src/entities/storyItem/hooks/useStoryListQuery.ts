@@ -1,5 +1,5 @@
-import { fetchStoryItemArray } from "@/entities/storyItem";
-import { HN_STORY_CATEGORIES } from "@/shared/hn/const";
+import { fetchStoryItemArray } from "@entities/storyItem";
+import { HN_STORY_CATEGORIES } from "@shared/hn";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 export function useStoryListQuery(

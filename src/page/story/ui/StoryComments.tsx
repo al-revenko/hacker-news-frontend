@@ -1,7 +1,7 @@
 "use client";
 import { Heading } from "@shared/ui";
 import CommentsBlock from "@widgets/commentsBlock";
-import { useComments } from "@/entities/commentItem";
+import { useComments } from "@entities/commentItem";
 
 interface Props {
   commentIds: number[];

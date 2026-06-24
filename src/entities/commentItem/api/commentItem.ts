@@ -1,4 +1,4 @@
-import { HN_API_URL } from "@shared/hn/const";
+import { HN_API_URL } from "@shared/hn";
 import { CommentItem } from "../model/types";
 import { isCommentItemsArray } from "../guard/isCommentItem";
 

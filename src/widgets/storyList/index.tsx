@@ -1,8 +1,7 @@
 "use client";
-import { HN_STORY_CATEGORIES } from "@/shared/hn/const";
-import { StoryItem } from "@/entities/storyItem";
+import { HN_STORY_CATEGORIES } from "@shared/hn";
+import { StoryItem, useStoryListQuery } from "@entities/storyItem";
 import { useOnInView } from "react-intersection-observer";
-import { useStoryListQuery } from "./hooks/useStoryListQuery";
 import StoryCard from "./ui/StoryCard";
 import StoryCardSkeleton from "./ui/StoryCardSkeleton";
 

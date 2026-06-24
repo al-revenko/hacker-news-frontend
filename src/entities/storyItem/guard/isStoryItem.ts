@@ -1,4 +1,4 @@
-import { HN_ITEM_TYPES } from "@shared/hn/const";
+import { HN_ITEM_TYPES } from "@shared/hn";
 import { StoryItem } from "../model/types";
 
 export function isStoryItem(value: unknown): value is StoryItem {
