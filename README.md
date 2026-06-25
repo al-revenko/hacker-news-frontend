@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hacker News Frontend
 
-## Getting Started
+## Описание проекта
 
-First, run the development server:
+Next.js-фронтенд для Hacker News. Проект предоставляет SPA-интерфейс для просмотра историй c Hacker News
+ 
+## Архитектура
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Проект построен на основе **FSD (Feature-Sliced Design)**:
+
+### Структура проекта
+
+```
+src/
+├── app/                          # Next.js App Router: роутинг, провайдеры, глобальные стили
+│   ├── (routes)/                 
+│   │   ├── page.tsx              # Главная страница (/)
+│   │   └── story/[id]/
+│   │       └── page.tsx          # Страница истории (/story/:id)
+│   ├── layout.tsx                # Корневой layout (HTML shell, шрифты, провайдеры)
+│   ├── RootProvider.tsx          # Корневой провайдер, агрегирующий глобальные провайдеры на проекте. (ThemeProvider, QueryClientProvider, etc)
+│   ├── theme.ts                  # MUI тема (palette, typography)
+│   ├── globals.css               # Глобальные стили, Tailwind, CSS-переменные
+│   ├── not-found.tsx             # 404 fallback
+│   └── favicon.ico               # Иконка сайта
+├── page/                         
+│   ├── home/                     # Компонент домашней страницы
+│   ├── notFound/                 # Компонент страницы 404
+│   └── story/                    # Компонент страницы с историей (StoryItem)
+├── widgets/                      
+│   ├── commentsBlock/            # Блок комментариев
+│   ├── header/                   # Шапка сайта
+│   └── storyList/                # Список историй
+├── entities/                     
+│   ├── commentItem/              # Сущность комментария (CommentItem)
+│   └── storyItem/                # Сущность истории (StoryItem)
+└── shared/                       
+    ├── hn/                       # Константы Hacker News API
+    ├── lib/                      # Утилиты
+    └── ui/                       # Переиспользуемые UI-компоненты
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Основной стек технологий
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Next.js 16
+- React 19
+- TypeScript 5
+- Material UI 9
+- Tailwind CSS 4
+- TanStack React Query 5
+- dayjs
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Переменные окружения
 
-## Learn More
+| Переменная | Описание | По умолчанию |
+|-----------|----------|-------------|
+| `NEXT_PUBLIC_HN_API_URL` | URL бэкенда | — |
 
-To learn more about Next.js, take a look at the following resources:
+## Как запустить
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Установка зависимостей
+npm install
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Development 
+npm run dev
 
-## Deploy on Vercel
+# Production
+npm run build
+npm run start
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# localhost:3000 (по умолчанию)
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Запуск в Docker
+
+```bash
+docker build -t hacker-news-frontend --build-arg HN_API_URL=http://host.docker.internal:4000/hn/  .
+
+docker run -d --name hacker-news-frontend  -p 3000:3000 hacker-news-frontend
+```
