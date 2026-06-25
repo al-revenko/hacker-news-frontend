@@ -34,8 +34,8 @@ src/
 ├── entities/                     
 │   ├── commentItem/              # Сущность комментария (CommentItem)
 │   └── storyItem/                # Сущность истории (StoryItem)
-└── shared/                       
-    ├── hn/                       # Константы Hacker News API
+└── shared/
+    ├── api/                      # API Hacker News
     ├── lib/                      # Утилиты
     └── ui/                       # Переиспользуемые UI-компоненты
 
@@ -55,7 +55,8 @@ src/
 
 | Переменная | Описание | По умолчанию |
 |-----------|----------|-------------|
-| `NEXT_PUBLIC_HN_API_URL` | URL бэкенда | — |
+| `NEXT_PUBLIC_API_URL` | URL бэкенда (для клиента) | — |
+| `INTERNAL_API_URL` | URL бэкенда (для сервера) | — |
 
 ## Как запустить
 
@@ -76,7 +77,11 @@ npm run start
 ## Запуск в Docker
 
 ```bash
-docker build -t hacker-news-frontend --build-arg HN_API_URL=http://host.docker.internal:4000/hn/  .
+docker build -t hacker-news-frontend --build-arg PUBLIC_API_URL=http://localhost:4000 --build-arg INTERNAL_API_URL=http://localhost:4000 .
 
-docker run -d --name hacker-news-frontend  -p 3000:3000 hacker-news-frontend
+## Или если бэкенд запущен в контейнере
+
+docker build -t hacker-news-frontend --build-arg PUBLIC_API_URL=http://localhost:4000 --build-arg INTERNAL_API_URL=http://host.docker.internal:4000 .
+
+docker run -d --name hacker-news-frontend -p 3000:3000 hacker-news-frontend
 ```

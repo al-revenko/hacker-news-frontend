@@ -1,8 +1,8 @@
-import { HN_ITEM_TYPES } from "@shared/hn";
+import { ITEM_TYPES } from "@shared/api";
 
 export interface StoryItem {
   id: number;
-  type: HN_ITEM_TYPES.Story;
+  type: ITEM_TYPES.Story;
   user: string;
   time: number;
   url: string | null;

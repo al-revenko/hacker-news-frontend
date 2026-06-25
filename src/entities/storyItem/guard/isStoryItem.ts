@@ -1,9 +1,9 @@
-import { HN_ITEM_TYPES } from "@shared/hn";
+import { ITEM_TYPES } from "@shared/api";
 import { StoryItem } from "../model/types";
 
 export function isStoryItem(value: unknown): value is StoryItem {
   if (value && typeof value === "object" && "id" in value && "type" in value) {
-    return value.type === HN_ITEM_TYPES.Story;
+    return value.type === ITEM_TYPES.Story;
   }
 
   return false;

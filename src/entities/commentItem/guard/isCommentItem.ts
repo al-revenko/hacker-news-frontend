@@ -1,9 +1,9 @@
-import { HN_ITEM_TYPES } from "@shared/hn";
+import { ITEM_TYPES } from "@shared/api";
 import { CommentItem } from "../model/types";
 
 export function isCommentItem(value: unknown): value is CommentItem {
   if (value && typeof value === "object" && "id" in value && "type" in value) {
-    return value.type === HN_ITEM_TYPES.Comment;
+    return value.type === ITEM_TYPES.Comment;
   }
 
   return false;

@@ -1,11 +1,12 @@
-import { HN_API_URL, HN_STORY_CATEGORIES } from "@shared/hn";
 import { StoryItem } from "../model/types";
 import { isStoryItem } from "../guard/isStoryItem";
+import { STORY_CATEGORIES } from "../const";
+import { API_URL } from "@shared/api";
 
 export async function fetchStoryItem(
   id: string | number,
 ): Promise<StoryItem | null> {
-  const url = new URL(`story/${id}`, HN_API_URL);
+  const url = new URL(`hn/story/${id}`, API_URL);
 
   const item = await fetch(url, {
     method: "GET",
@@ -27,14 +28,14 @@ export interface FetchStoryItemArrayResponse {
 }
 
 export async function fetchStoryItemArray(
-  category: HN_STORY_CATEGORIES,
+  category: STORY_CATEGORIES,
   pagination: { offset?: number; limit?: number } = {},
 ): Promise<FetchStoryItemArrayResponse> {
   const { offset = 0, limit = 20 } = pagination;
 
   const url = new URL(
-    `story/${category}?offset=${offset}&limit=${limit}`,
-    HN_API_URL,
+    `hn/story/${category}?offset=${offset}&limit=${limit}`,
+    API_URL,
   );
 
   return fetch(url, {

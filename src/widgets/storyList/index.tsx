@@ -1,13 +1,16 @@
 "use client";
-import { HN_STORY_CATEGORIES } from "@shared/hn";
-import { StoryItem, useStoryListQuery } from "@entities/storyItem";
+import {
+  STORY_CATEGORIES,
+  StoryItem,
+  useStoryListQuery,
+} from "@entities/storyItem";
 import { useOnInView } from "react-intersection-observer";
 import StoryCard from "./ui/StoryCard";
 import StoryCardSkeleton from "./ui/StoryCardSkeleton";
 
 export interface StoryListProps {
   className?: string;
-  category: HN_STORY_CATEGORIES;
+  category: STORY_CATEGORIES;
   itemsPerPage?: number;
   cacheStaleTimeMs?: number;
   prefetchItems?: boolean;

@@ -1,8 +1,8 @@
-import { HN_ITEM_TYPES } from "@shared/hn";
+import { ITEM_TYPES } from "@shared/api";
 
 export interface CommentItem {
   id: number;
-  type: HN_ITEM_TYPES.Comment;
+  type: ITEM_TYPES.Comment;
   user?: string;
   time: number;
   parent: number | null;
