@@ -22,10 +22,11 @@ src/
 │   ├── theme.ts                  # MUI тема (palette, typography)
 │   ├── globals.css               # Глобальные стили, Tailwind, CSS-переменные
 │   ├── not-found.tsx             # 404 fallback
+│   ├── error.tsx                 # Глобальный error boundary
 │   └── favicon.ico               # Иконка сайта
 ├── page/                         
 │   ├── home/                     # Компонент домашней страницы
-│   ├── notFound/                 # Компонент страницы 404
+│   ├── error/                    # Компоненты страниц ошибок
 │   └── story/                    # Компонент страницы с историей (StoryItem)
 ├── widgets/                      
 │   ├── commentsBlock/            # Блок комментариев

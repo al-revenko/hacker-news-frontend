@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import StoryPage from "@page/story";
 import { fetchStoryItem } from "@entities/storyItem";
-import NotFoundPage from "@page/notFound";
+import { notFound } from "next/navigation";
 
 interface Props {
   params: Promise<{
@@ -9,15 +9,15 @@ interface Props {
   }>;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: Props): Promise<Metadata | null> {
   const { id } = await params;
 
   const item = await fetchStoryItem(id);
 
   if (!item) {
-    return {
-      title: "Not Found",
-    };
+    return null;
   }
 
   return {
@@ -36,7 +36,7 @@ export default async function Story({ params }: Props) {
 
   const item = await fetchStoryItem(id);
 
-  if (!item) return <NotFoundPage />;
+  if (!item) notFound();
 
   return <StoryPage data={item} />;
 }
